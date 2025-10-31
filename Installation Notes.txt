@@ -1,0 +1,8 @@
+Installation and Setup: 
+1. Move to this link https://www.oracle.com/java/technologies/downloads/.
+2. Download LTS version in format of x64 Installer for windows.
+3. Open the downloaded file and proceed with next step and remember its path shown in Program files
+4. After download, search for Edit the system environment variables and after this System Properties tab will open 
+and in that select environment variables 
+5. In System variables click new and add name = JAVA_HOME and value = C:\Program Files\Java\jdk-21 [value will as per path at which java's folder jdk will be present]
+6. Now move to path in System variables, click edit then add new row and put %JAVA_HOME%\bin in that.
