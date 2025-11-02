@@ -2,6 +2,7 @@ import java.util.*;
 
 public class Leaders {
     
+    // Time Complexity: O(n) and Space Complexity: O(n)
     public static Vector<Integer> findLeaders(int [] nums){
         Vector<Integer> Leaders = new Vector<>();
         HashMap<Integer, Integer> map = new HashMap<>();
