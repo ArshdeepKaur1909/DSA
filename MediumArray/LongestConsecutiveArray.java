@@ -1,9 +1,35 @@
+import java.util.Arrays;
 import java.util.Scanner;
 
 public class LongestConsecutiveArray{
     
-    // Brute Force Approach => Time Complexity: O(n^2) and Space Complexity: O(1)
+    // Better Approach => Time Complexity: O(nlogn + n) and Space Complexity: O(n)
     public static int longestConsecutive(int[] nums) {
+        if(nums.length == 1) return 1;
+        
+        Arrays.sort(nums);
+
+        int count = 0, lm = Integer.MIN_VALUE, longest = 0; 
+
+        for(int i = 0; i<nums.length; i++){
+            if(nums[i] == lm) continue;
+
+            if(nums[i]-1 == lm){
+                count = count + 1;
+                lm = nums[i];
+            }else{
+                count = 1;
+                lm = nums[i];
+            }
+
+            longest = Math.max(count, longest);
+        }
+
+        return longest;
+    }
+    
+    // Brute Force Approach => Time Complexity: O(n^2) and Space Complexity: O(1)
+    /* public static int longestConsecutive(int[] nums) {
     if (nums == null || nums.length == 0) return 0;
     
     int maxCount = 1;
@@ -21,7 +47,7 @@ public class LongestConsecutiveArray{
         maxCount = Math.max(maxCount, count);
     }
     return maxCount;
-}
+} */ 
     public static void main(String [] args){
         Scanner input = new Scanner(System.in);
 
