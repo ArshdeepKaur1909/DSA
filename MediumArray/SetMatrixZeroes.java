@@ -3,11 +3,11 @@ import java.util.*;
 public class SetMatrixZeroes {
     
     // Brute Force Approach
-    // Time complexity: O(m*n*(m + n)) where m is number of rows and n is number of columns
+    // Time complexity: O(2(m*n)) where m is number of rows and n is number of columns
     // Space complexity: O(m + n)
     public static void setMatrixZeroes(int [][] matrix){
-        Vector<Integer> row = new Vector<>();
-        Vector<Integer> column = new Vector<>();
+        HashSet<Integer> row = new HashSet<>();
+        HashSet<Integer> column = new HashSet<>();
 
         for(int i = 0; i<matrix.length; i++){
             for(int j = 0; j<matrix[i].length; j++){
