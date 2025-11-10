@@ -1,0 +1,63 @@
+import java.util.*;
+
+public class SetMatrixZeroes {
+    
+    // Brute Force Approach
+    // Time complexity: O(m*n*(m + n)) where m is number of rows and n is number of columns
+    // Space complexity: O(m + n)
+    public static void setMatrixZeroes(int [][] matrix){
+        Vector<Integer> row = new Vector<>();
+        Vector<Integer> column = new Vector<>();
+
+        for(int i = 0; i<matrix.length; i++){
+            for(int j = 0; j<matrix[i].length; j++){
+                if(matrix[i][j] == 0){
+                    row.add(i);
+                    column.add(j);
+                }
+            }
+        }
+
+        for(int i = 0; i<matrix.length; i++){
+            if(row.contains(i) == true ){
+                for(int j = 0; j<matrix[i].length; j++){
+                    matrix[i][j] = 0;
+                }
+            }else{
+            for(int j = 0; j<matrix[i].length; j++){
+                if(column.contains(j) == true){
+                    matrix[i][j] = 0;
+                }
+            }
+         }
+        }
+    }
+    public static void main(String [] args){
+        Scanner input = new Scanner(System.in);
+
+        System.out.println("Enter number of rows: ");
+        int rows = input.nextInt();
+
+        System.out.println("Enter number of columns: ");
+        int cols = input.nextInt();
+
+        int[][] matrix = new int[rows][cols];
+
+        for(int i = 0; i < matrix.length; i++){
+            System.out.println("Enter elements for row " + (i+1) + ": ");
+            for(int j = 0; j < matrix[i].length; j++){
+                matrix[i][j] = input.nextInt();
+            }
+        }
+
+        setMatrixZeroes(matrix);
+        for(int i = 0; i<matrix.length; i++){
+            for(int j = 0; j<matrix[i].length; j++){
+                System.out.print(matrix[i][j] + " ");
+            }
+            System.out.println();
+        }
+
+        input.close();
+    }
+}
