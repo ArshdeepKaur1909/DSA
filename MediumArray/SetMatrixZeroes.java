@@ -2,7 +2,7 @@ import java.util.*;
 
 public class SetMatrixZeroes {
     
-    // Brute Force Approach
+    // Better Approach
     // Time complexity: O(2(m*n)) where m is number of rows and n is number of columns
     // Space complexity: O(m + n)
     public static void setMatrixZeroes(int [][] matrix){
