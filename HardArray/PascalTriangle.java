@@ -4,7 +4,7 @@ public class PascalTriangle {
     
 
     // Type - 1 : Given row and col, provide the value at that position in pascal triangle
-    public static int pascalValue(int row, int col){
+    /* public static int pascalValue(int row, int col){
         if(col == 0 || col == row){
             return 1;
         }
@@ -20,6 +20,27 @@ public class PascalTriangle {
         }
 
         return result;
+    } */
+
+    // Type - 2 : Given Row Number and we have to print that row of pascal triangle
+    public static List<Integer> getRow(int row){
+        List<Integer> pascalRow = new Vector<>();
+
+        pascalRow.add(1);
+
+        if(row == 0){
+            return pascalRow;
+        }
+
+        int ans = 1;
+        for(int i = 1; i<row-1; i++){
+            ans = ans*(row - i)/i;
+            pascalRow.add(ans);
+        }
+
+        pascalRow.add(1);
+
+        return pascalRow;
     }
 
     // Type - 3 : Given number of rows, provide the pascal triangle till that number of rows
@@ -70,10 +91,17 @@ public class PascalTriangle {
 
         System.out.println(pascalList); */
 
-        System.out.println("Enter row and col of where you want to find value: ");
+        /* System.out.println("Enter row and col of where you want to find value: ");
         int row = input.nextInt();
         int col = input.nextInt();
 
-        System.out.println("The value present at that row and col is: " + pascalValue(row, col));
+        System.out.println("The value present at that row and col is: " + pascalValue(row, col)); */
+
+        System.out.println("Enter row number you want to print: ");
+        int row = input.nextInt();
+
+        List<Integer> pascalRow = getRow(row);
+        System.out.println("The row is: " + pascalRow);
+
     }
 }
