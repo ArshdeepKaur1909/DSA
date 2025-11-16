@@ -103,5 +103,7 @@ public class PascalTriangle {
         List<Integer> pascalRow = getRow(row);
         System.out.println("The row is: " + pascalRow);
 
+        input.close();
+
     }
 }
