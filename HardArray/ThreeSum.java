@@ -3,7 +3,7 @@ import java.util.*;
 public class ThreeSum {
     // Given an integer array nums, return all the triplets [nums[i], nums[j], nums[k]] such that i != j, i != k, and j != k, and nums[i] + nums[j] + nums[k] == 0.
     
-    // Optimal Approach => Time Complexity: O(n²) and Space Complexity: O(1)
+    // Optimal Approach => Time Complexity: O(n²) and Space Complexity: O(no. of triplets)
     public static List<List<Integer>> threeSum(int[] nums) {
        List<List<Integer>> main = new Vector<>();
        
@@ -39,7 +39,7 @@ public class ThreeSum {
 
     }
 
-    // Better Approach => Time Complexity: O(n² · k) where k = number of valid triplets and Space Complexity: O(N)
+    // Better Approach => Time Complexity: O(n²) and Space Complexity: O(no. of triplets X 2 + n)
     /* public static List<List<Integer>> threeSum(int [] nums){
        List<List<Integer>> main = new Vector<>();
 
@@ -63,7 +63,7 @@ public class ThreeSum {
 
     } */
 
-    // Brute Force Approach => O(N^3) time complexity and O(1) space complexity
+    // Brute Force Approach => O(n^3) time complexity and O(1) space complexity
     /* public static List<List<Integer>> threeSum(int[] nums) {
         List<List<Integer>> main = new Vector<>();
 

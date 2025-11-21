@@ -2,7 +2,7 @@ import java.util.*;
 
 public class FourSum{
     
-    // Time Complexity: O(n^3) and Space Complexity: O(1)
+    // Time Complexity: O(n^3) and Space Complexity: O(no. of quadruplets)
     public static List<List<Integer>> fourSum(int[] nums, int target) {
         List<List<Integer>> main = new Vector<>();
         
@@ -25,19 +25,13 @@ public class FourSum{
                     l--;
                    }
                    else{
-                    List<Integer> ans = new Vector<>(4);
-
-                    ans.add(nums[i]);
-                    ans.add(nums[j]);
-                    ans.add(nums[k]);
-                    ans.add(nums[l]);
-                    main.add(ans);
+                    main.add(Arrays.asList(nums[i], nums[j], nums[k], nums[l]));
 
                     k++;
                     l--;
 
-                    while(nums[k-1] == nums[k] && k<l) k++;
-                    while(nums[l] == nums[l+1] && k<l) l--;
+                    while(k<l && nums[k-1] == nums[k]) k++;
+                    while(k<l && nums[l] == nums[l+1]) l--;
                    }
                 }
             }
