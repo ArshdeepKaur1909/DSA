@@ -2,8 +2,34 @@ import java.util.*;
 
 public class MergeTwoArraysWithoutSpace {
     
-    // Brute Force Approach => Time Complexity = O(m+n) Space Complexity = O(m+n)
+    // Better Force Approach => Time Complexity = O(2(m+n)) and Space Complexity = O(1)
     public static void merge(int[] nums1, int m, int[] nums2, int n) {
+        int i = m-1, j = n-1, k = m+n-1;
+
+        while(i >= 0 && j >= 0){
+            if(nums1[i] <  nums2[j]){
+                nums1[k--] = nums2[j--];
+            }
+            else if(nums1[i] == nums2[j]){
+                nums1[k--] = nums2[j--];
+                nums1[k--] = nums1[i--];
+            }
+            else{
+                nums1[k--] = nums1[i--];
+            }
+        }
+
+        while(i >= 0){
+            nums1[k--] = nums1[i--];
+        }
+
+        while(j >= 0){
+            nums1[k--] = nums2[j--];
+        }
+    }
+
+    // Brute Force Approach => Time Complexity = O(m+n) Space Complexity = O(m+n)
+    /* public static void merge(int[] nums1, int m, int[] nums2, int n) {
         int [] merge = new int[m+n];
 
         int i = 0, j = 0, k = 0;
@@ -31,7 +57,7 @@ public class MergeTwoArraysWithoutSpace {
         for(int l = 0; l<(m+n); l++){
             nums1[l] = merge[l];
         }
-    }
+    } */
     public static void main(String [] args){
         Scanner input = new Scanner(System.in);
         
