@@ -8,30 +8,26 @@ public class MergeSort {
         int [] merged = new int[(high - low + 1)];
         int i = low;
         int j = mid + 1;
+        int k = 0;
         
-        for(int k = 0; k<merged.length; k++){
-            if(i<=mid && j<=high){
-                if(arr[i] <= arr[j]){
-                    merged[k] = arr[i];
-                    i++;
-                }else{
-                    merged[k] = arr[j];
-                    j++;    
-                }
-            }else{
-                if(i == arr.length){
-                    merged[k] = arr[j];
-                    j++;   
-            }else{
-                    merged[k] = arr[i];
-                    i++;    
-                }
-            }
+        while(i <= mid && j <= high){
+           if(arr[i] <= arr[j]){
+             merged[k++] = arr[i++];
+           }else{
+            merged[k++] = arr[j++];
+           }
+        }
+
+        while(i <= mid){
+            merged[k++] = arr[i++];
+        }
+        while(j <= high){
+              merged[k++] = arr[j++];
         }
 
         // Copying elements of merged array to original array
-        for(int k = 0; k<merged.length; k++){
-            arr[low + k] = merged[k];
+        for(int l = 0; l<merged.length; l++){
+            arr[low + l] = merged[l];
         }
     }
 
