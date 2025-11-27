@@ -67,5 +67,7 @@ public class CountInversions{
         }
 
         System.out.println("The inversions present in array: " + countInversions(nums));
+
+        input.close();
     }
 }
