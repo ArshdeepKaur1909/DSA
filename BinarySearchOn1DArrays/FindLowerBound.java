@@ -46,5 +46,7 @@ public class FindLowerBound {
         int target = input.nextInt();
 
         System.out.println("The lower bound for the target " + target + " is at index: " + lowerBound(arr, target));
+
+        input.close();
     }
 }

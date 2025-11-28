@@ -43,5 +43,7 @@ public class FindHigherBound {
         int target = input.nextInt();
 
         System.out.println("The higher bound for the target " + target + " is at index: " + higherBound(arr, target));
+
+        input.close();  
     }
 }
