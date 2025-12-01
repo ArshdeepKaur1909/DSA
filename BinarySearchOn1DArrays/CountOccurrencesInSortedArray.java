@@ -2,6 +2,7 @@ import java.util.*;
 
 public class CountOccurrencesInSortedArray {
     
+    // Time Complexity: O(log n)
     public static int countOccurences(int [] nums, int target){
         return (searchLast(nums, target) - searchFirst(nums, target) + 1);
     }
