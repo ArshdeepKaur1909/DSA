@@ -24,6 +24,7 @@ public class SearchInLeftRotatedArray{
         reverse(nums, 0, n-1);
     }
 
+    // Time Complexity = O(log n) and Space Complexity = O(1)
     public static int search(int[] nums, int target) {
         int low = 0;
         int high = nums.length - 1;
