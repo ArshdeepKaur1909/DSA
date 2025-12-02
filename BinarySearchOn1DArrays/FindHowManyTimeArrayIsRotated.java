@@ -1,8 +1,6 @@
-import java.util.*;
+import java.util.Scanner;
 
-public class FindMinInRotatedSortedArray {
-
-    // Given the sorted rotated array nums of unique elements, return the minimum element of this array
+public class FindHowManyTimeArrayIsRotated {
     
     public static void reverse(int [] nums, int start, int end){
         if (nums.length == 1) return;
@@ -25,34 +23,40 @@ public class FindMinInRotatedSortedArray {
         reverse(nums, d, n-1);
         reverse(nums, 0, n-1);
     }
-
-    public static int findMin(int[] nums) {
-
-       if(nums.length == 1) return nums[0];
-
+    
+    public static int countRotations(int [] nums){
         int low = 0;
         int high = nums.length - 1;
         int min = Integer.MAX_VALUE;
+        int minIndex = -1;
 
         while(low <= high){
             int mid = (low + high)/2;
             
             // Left Part is sorted
             if(nums[low] <= nums[mid]){
-               min = Math.min(min, nums[low]);
+               if(nums[low] < min){
+                min = nums[low];
+                minIndex = low;
+               }
                low = mid + 1;
             }
             // Right Part is sorted
             else{
-               min = Math.min(min, nums[mid]);
+              if(nums[mid] < min){
+                min = nums[mid];
+                minIndex = mid;
+               }
                high = mid - 1;
             }
         }
 
-        return min;
+
+        return (nums.length - minIndex);
     }
+    
     public static void main(String [] args){
-        Scanner input = new Scanner(System.in);
+       Scanner input = new Scanner(System.in);
 
         System.out.println("Enter size for array: ");
         int size = input.nextInt();
@@ -73,9 +77,6 @@ public class FindMinInRotatedSortedArray {
             System.out.println(nums[i] + " ");
         }
 
-        System.out.println("Minimum Element in array is: " + findMin(nums));
-
-
-        input.close();
+        System.out.println("The array is rotated " + countRotations(nums) + " times.");
     }
 }
