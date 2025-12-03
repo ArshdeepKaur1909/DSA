@@ -78,5 +78,7 @@ public class FindHowManyTimeArrayIsRotated {
         }
 
         System.out.println("The array is rotated " + countRotations(nums) + " times.");
+
+        input.close();
     }
 }
