@@ -47,5 +47,7 @@ public class PeakElement{
         }
 
         System.out.println("The index of peak element is: " + findPeakElement(nums));
+
+        input.close();
     }
 }
