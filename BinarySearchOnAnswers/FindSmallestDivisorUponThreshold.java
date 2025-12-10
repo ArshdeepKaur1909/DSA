@@ -2,6 +2,7 @@ import java.util.*;
 
 public class FindSmallestDivisorUponThreshold {
 
+    // Time Complexity: O(N log(Max))
     public static int max(int [] nums){
         int max = nums[0];
 
