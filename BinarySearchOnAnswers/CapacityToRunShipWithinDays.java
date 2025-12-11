@@ -2,6 +2,7 @@ import java.util.*;
 
 public class CapacityToRunShipWithinDays {
 
+   // Time Complexity: O(N log(Sum - Max + 1)) , Space Complexity: O(1)
    public static int[] findMaxAndSum(int [] nums){
         int max = nums[0];
         int sum = nums[0];
