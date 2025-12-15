@@ -2,6 +2,7 @@ import java.util.*;
 
 public class PaintersPartition{
 
+    // Time Complexity : O(log(sum - max +1)*n)
     public static int[] maxandsum(int [] nums){
        int max = nums[0];
        int sum = nums[0];
