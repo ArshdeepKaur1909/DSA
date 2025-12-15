@@ -2,8 +2,53 @@ import java.util.*;
 
 public class MedianOfTwoSortedArrays {
 
+    public static int findEle(int [] nums1, int [] nums2, int index){
+       int count = 0;
+
+       int i = 0;
+       int j = 0;
+       while(i < nums1.length && j < nums2.length){
+           if(nums1[i] < nums2[j]){
+            if(count == index) return nums1[i];
+            count++;
+            i++;
+           }else{
+            if(count == index) return nums2[j];
+            count++;
+            j++;
+           }
+       }
+
+       while(i < nums1.length){
+            if(count == index) return nums1[i];
+            count++;
+            i++;
+       }
+
+       while(j < nums2.length){
+            if(count == index) return nums2[j];
+            count++;
+            j++;
+       }
+
+       return -1;
+    }
+
+    public static double Median(int [] nums1, int [] nums2){
+       int mergeLength = nums1.length + nums2.length;
+       int mid = mergeLength/2;
+       if((mergeLength)%2 == 0){
+          int el1 = findEle(nums1, nums2, mid);
+          int el2 = findEle(nums1, nums2, mid-1);
+
+          return (double)(el1+el2)/2;
+       }
+
+       return findEle(nums1, nums2, mid);
+    }
+
     // Time Complexity: O(n1 + n2) and Space Complexity: O(n1 + n2)
-    /* public static int Median(int [] nums1, int [] nums2){
+    /* public static double Median(int [] nums1, int [] nums2){
         int [] merge = new int[nums1.length + nums2.length];
         int i = 0, j = 0, k = 0;
 
@@ -11,7 +56,7 @@ public class MedianOfTwoSortedArrays {
            if(nums1[i] < nums2[j]){
             merge[k++] = nums1[i++];
            }else{
-            merge[k++] = nums2[j];
+            merge[k++] = nums2[j++];
            }
         }
 
@@ -24,7 +69,7 @@ public class MedianOfTwoSortedArrays {
         }
 
         if(merge.length%2 == 0){
-           return (merge[merge.length/2] + merge[(merge.length/2)-1])/2;
+           return (double)(merge[merge.length/2] + merge[(merge.length/2)-1])/2;
         }
 
         return merge[merge.length/2];
