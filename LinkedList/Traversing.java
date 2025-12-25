@@ -16,6 +16,7 @@ class Node{
 
 public class Traversing{
 
+    // Time Complexity: O(n)
     public static void traverseLL(Node head){
        Node temp = head;
        // we have to traverse till temp becomes null 
