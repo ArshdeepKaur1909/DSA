@@ -1,0 +1,72 @@
+import java.util.*;
+
+class Node{
+    int data;
+    Node next;
+
+    Node(int d, Node n){
+        this.data = d;
+        this.next = n;
+    }
+
+    Node(int d){
+       this.data = d;
+       this.next = null;
+    }
+}
+public class HowToDeleteANode {
+
+    public static Node createLinkedList(int [] nums){
+        Node head = new Node(nums[0]);
+        Node mover = head;
+
+        for(int i = 1; i<nums.length; i++){
+            Node temp = new Node(nums[i]);
+            mover.next = temp;
+            mover = temp;
+        }
+
+        return head;
+    }
+
+    public static int LengthLL(Node head){
+        Node temp = head;
+        int length = 0;
+        while(temp != null){
+           length += 1;
+           temp = temp.next;     
+        }
+
+        return length;
+    }
+
+    public static Node deleteFromSpecificPosition(Node head, int k){
+        // k == position from where node needs to be deleted
+        if(k == 1){
+           return head.next;
+        }
+        int count = 1;
+        Node temp = head;
+        while(count < k){
+          if(count == k-1){
+            temp.next = temp.next.next;
+          }
+          count++;
+          temp = temp.next;
+        }
+        return head;
+    }
+
+    public static Node deleteHead(Node head){
+        head = head.next;
+        return head; 
+    }
+    public static void main(String [] args){
+        Scanner input = new Scanner(System.in);
+
+        System.out.println("Enter size for array: ");
+        int size = input.nextInt();
+
+        input.close();
+    }
+}
