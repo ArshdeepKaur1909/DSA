@@ -16,6 +16,15 @@ class Node{
 }
 public class HowToDeleteANode {
 
+    public static void traverse(Node head){
+        Node temp = head;
+        while(temp != null){
+            System.out.print(temp.data + " -> ");
+            temp = temp.next;
+        }
+        System.out.print("null");
+    }
+
     public static Node createLinkedList(int [] nums){
         Node head = new Node(nums[0]);
         Node mover = head;
@@ -66,6 +75,27 @@ public class HowToDeleteANode {
 
         System.out.println("Enter size for array: ");
         int size = input.nextInt();
+
+        int [] nums = new int[size];
+        System.out.println("Enter elements for array: ");
+        for(int i = 0; i<size; i++){
+           nums[i] = input.nextInt();    
+        }
+        Node head = createLinkedList(nums);
+        System.out.print("LinkedList before deletion: ");
+        traverse(head);
+
+        head = deleteHead(head);
+
+        System.out.println();
+        System.out.print("LinkedList after deletion of head: ");
+        traverse(head);
+
+
+        head = deleteFromSpecificPosition(head, 2);
+        System.out.println();
+        System.out.print("LinkedList after deletion from specific position: ");
+        traverse(head);
 
         input.close();
     }
