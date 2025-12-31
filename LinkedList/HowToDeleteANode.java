@@ -50,6 +50,11 @@ public class HowToDeleteANode {
     }
 
     public static Node deleteFromSpecificPosition(Node head, int k){
+        // when position is more than Length of LinkedList
+        if(k > LengthLL(head)){
+            System.out.println("Invalid Position"); 
+            return head;
+        }
         // k == position from where node needs to be deleted
         if(k == 1){
            return head.next;
@@ -67,9 +72,21 @@ public class HowToDeleteANode {
     }
 
     public static Node deleteHead(Node head){
+        if(head == null || head.next == null) return null;
         head = head.next;
         return head; 
     }
+    
+    // public static void deleteNode(Node node){
+    //     /* There is a singly-linked list head and we want to delete a node node in it. You are given the node to be deleted node. You will not be given access to the first node of head. All the values of the linked list are unique, and it is guaranteed that the given node node is not the last node in the linked list */
+    //     Node prev = null;
+    //     while(node.next != null){
+    //         prev = node;
+    //         node.data = node.next.data;
+    //         node = node.next;
+    //     } 
+    //     prev.next = null;
+    // }
     public static void main(String [] args){
         Scanner input = new Scanner(System.in);
 
