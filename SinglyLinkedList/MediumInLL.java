@@ -2,6 +2,7 @@ import java.util.*;
 
 public class MediumInLL {
 
+    // Time Complexity: O(n/2)
     public static Node middleNode(Node head) {
         Node slow = head;
         Node fast = head;
@@ -37,24 +38,24 @@ public class MediumInLL {
        System.out.print("null");
     }
     public static void main(String [] args){
-       Scanner input = new Scanner(System.in);
+      Scanner input = new Scanner(System.in);
 
       System.out.print("Enter size for array: ");
-       int size = input.nextInt();
+      int size = input.nextInt();
 
       int [] nums = new int[size];
-       System.out.println("Enter elements for array: ");
-       for(int i = 0; i<size; i++){
+      System.out.println("Enter elements for array: ");
+      for(int i = 0; i<size; i++){
            nums[i] = input.nextInt();
-       }
+      }
 
       Node head = createLL(nums);
       System.out.println("LinkedList looks like this: ");
       traverse(head);
 
       Node mid = middleNode(head);
-      System.out.println("Middle Node is: " + mid.data);
+      System.out.println("\nMiddle Node is: " + mid.data);
 
       input.close();
-    }
+   }
 }
