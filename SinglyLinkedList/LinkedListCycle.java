@@ -2,6 +2,33 @@ import java.util.*;
 
 public class LinkedListCycle {
 
+    //Optimal Approach -> Time Complexity: O(n), Space Complexity: O(1)
+    public static boolean detectCycle(Node head){
+        Node slow = head;
+        Node fast = head;
+
+        while(fast != null && fast.next != null){
+            slow = slow.next;
+            fast = fast.next.next;
+
+            if(slow == fast) return true;
+        }
+        return false;
+    }
+
+    //Brute Force Approach -> Function to detect cycle in a linkedlist -> Time Complexity: O(n), Space Complexity: O(n)
+    /* public static boolean detectCycle(Node head){
+        Node temp = head;
+        HashSet<Node> set = new HashSet<>();
+
+        while(temp != null){
+          if(set.contains(temp)) return true;
+          set.add(temp);
+          temp = temp.next;
+        }
+        return false;
+    } */
+
     public static void traverseLL(Node head){
        Node temp = head;
        // we have to traverse till temp becomes null 
@@ -10,7 +37,7 @@ public class LinkedListCycle {
           temp = temp.next;
        }
        System.out.println("null");
-    }
+    } 
 
     public static Node createLL(int [] nums){
         if(nums.length == 0) return null;
@@ -40,5 +67,7 @@ public class LinkedListCycle {
        Node head = createLL(nums);
        System.out.println("Original Linked List: ");
        traverseLL(head);
+
+       System.out.println("Does the LinkedList contains a cycle? " + detectCycle(head));
     }
 }
